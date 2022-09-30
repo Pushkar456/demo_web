@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title> Try It Yourself </title>
+   <style type="text/css">
+      * {
+         box-sizing: border-box;
+      }
+      html, body {
+         margin: 0;
+         padding: 0;
+         
+      }
+      .main{
+          overflow: hidden;
+          width: 100%;
+          height: 100vh;
+      }
+      .nav-bar {
+         background: lightgrey; 
+         width: 70%;
+         height: 100%;
+         position: fixed;
+         top: 0px; 
+         left: -70%; 
+         overflow-y: auto;
+         z-index: 3;
+         transition: 0.5s;
+      }
+      .nav-bar h3{
+          font-size: 20px;
+          margin-left: 90%;
+      }
+      .nav-bar a {
+         text-decoration: none;
+         color: black;
+         display: block;
+      }
+      .nav-bar > ul {
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+      }
+      .nav-bar > ul > li > a {
+         padding: 5rem;
+         text-align: center;
+         background: lightgrey;
+         transition: 0.5s;
+         font-size: 2rem;
+      }
+     
+      .nav-bar .active {
+         background: #173459;
+         color: #f8f9f9;
+      }
+      .nav-bar li {
+         border-bottom: 1px solid #333;
+      }
+      .nav-bar li:last-child {
+         border: none;
+      }
+      .nav-bar li:first-child{
+          border-top: 1px solid #333;
+      }
+      
+      header{
+          height: 80vh;
+          width: 100%;
+          position: absolute;
+          color: red;
+          font-size: 2rem;
+          padding: 10px; 
+          display: flex;
+          justify-content: space-between;
+      }
+      header h1{
+          margin-left: 80%;
+      }
+      header h2{
+          font-size: 3rem;
+          position: fixed;
+          background: blue;
+      }
+    
+      .content {
+         background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("./sample/img/showcase.jpg");
+         background-position: center;
+         background-size: cover;
+         width: 100%;
+         height: 100vh;
+        
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         color: #fff;
+         text-align: center;
+         translate: transform(-50%,-50%);
+      }
+      .content h1{
+         font-size: 10rem;
+         font-weight: 700;
+         
+      }
+      .content p{
+         margin-top: -0px;
+         font-size: 2rem;
+      }
+      .btn{
+        position: relative;
+        
+        background: transparent;
+        border: 1px solid #fff;
+        width: 30rem;
+        height: 7rem;
+        border-radius: 100px; 
+        color: #fff;
+        font-size: 3rem;
+        margin-top: 20px;
+        z-index: 2;
+        overflow: hidden;
+      }
+      .btn::after{
+          content: "";
+          position: absolute;
+          background: green;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 0%;
+          border-radius: 50px;
+          z-index: -1;
+          transition: 0.4s;
+      }
+      .btn:hover{
+          border: none;
+      }
+      .btn:hover::after{
+          width: 100%;  
+      }
+     .courses{
+       width: 100%;
+       flex-direction: column;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       text-align: center;
+       margin-top: 20px;
+     }
+    .courses h1,.contact h1{
+      font-size: 5rem;
+    }
+    .row{
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      width: 100%;
+    }
+    .course_col{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: #fbc161b7;
+        margin: 15px auto;
+        width: 80%;
+        height: 30rem;
+        border-radius: 10px;
+        padding 0 5px;
+        box-shadow: 0 0 13px black;
+        transition: .5s;
+        font-size: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+    .course_col p{margin-top: -10px;}
+    .course_col a{
+        margin-top: 10px;
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        font-size: 3rem;
+        text-shadow: 0 0 2px black;
+        
+        
+    }
+    .course_col:hover{
+        transform: translateY(-15px);
+       
+    }
+    .contact{
+       width: 100%;
+       background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("./sample/img/showcase.jpg");
+       background-position: center;
+       background-size: cover;
+       flex-direction: column;
+       display: flex;
+       color: white;
+       justify-content: center;
+       align-items: center;
+       margin-top: 10px;
+       height: 50vh;
+     }
+    .contact form{
+       height: 100%;
+       border: 2px solid red;  
+    }
+    .contact input,textarea{
+        background: none;
+        outline: none;
+        margin: 20px auto;
+        padding: 5px 4px;
+        width: 80%;
+        height: 100px;
+        border: 2px solid white;
+        color: white;
+        border-radius: 10px;
+        font-size: 2rem;
+       
+    }
+    .contact button{
+        margin: 20px auto;
+        margin-top: 3rem;
+    }
+    
+    .footer{
+        width: 100%;
+        height: 100px;
+        background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+        border: .5px solid;
+        display: flex;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+    }
+    
+   </style>
+</head>
+<body>
+  <section class="main">
+   <div class="nav-bar" id="nav-bar">
+       <h3 id="hide" onclick="hideMenu()">x</h3>
+      <ul>
+         <li><a href="#" class="tab active" onclick="activetab()"> Home </a></li>
+         <li><a href="#coursess" class="tab" onclick="activetab()"> Couses </a></li>
+         <li><a href="#Contact" class="tab" onclick="activetab()"> Contact </a></li>
+         <li><a href="#" class="tab" onclick="activetab()"> Gallery </a></li>
+      </ul>
+   </div>
+   <header>
+       <h2 id="menu" onclick="showMenu()">three</h2>
+       <h1>tutorials Point</h1>
+   </header>
+   <div class="content">
+       <h1>Add your skills</h1>
+      <p> This is where the content of the page goes.<br> Its container has . </p>
+      <button type="button" class="btn">Explore now</button>
+   </div>
+ </section>
+ <section class="courses" id="coursess">
+     <h1>Our Courses</h1>
+     <div class="row">
+         <div class="course_col">
+             <h2>Data science</h2>
+             <p>this is the course where you  This is where the content This is where the content This is where the content </p>
+             <a href="#">Explore Now</a>
+         </div>
+         <div class="course_col">
+             <h2>Programing</h2>
+             <p>this is the course where you jsj jsbd jxbdb jdvrh hdbdb </p>
+             
+         </div>
+         <div class="course_col">
+             <h2>Self Develpoment</h2>
+             <p>this is the course where you jsj jsbd jxbdb jdvrh hdbdb </p>
+             
+         </div>
+     </div>
+ </section>
+ <section class="contact" id="Contact">
+     <h1>Contact Us</h1>
+         <input type="text" placeholder="enter your name">
+         <input type="email" placeholder="enter your email">
+         <textarea placeholder="enter your messege " rows="10"></textarea>
+         <button type="submit" class="btn"> Send </button>    
+ </section>
+ <section class="footer">
+     
+     <p>@copyright content </p>
+ </section>
+ 
+   <script>
+       var navBar = document.getElementById("nav-bar");
+       var tablists=document.getElementsByClassName("tab");
+       function activetab(){
+          for(tab of tablists){
+            tab.classList.remove("active");
+          }
+            
+      event.currentTarget.classList.add("active");
+       }
+       function showMenu(){
+          navBar.style.left="0";
+       }
+      function hideMenu(){
+          navBar.style.left="-70%";
+       } 
+   </script>
+</body>
+
+</html>
